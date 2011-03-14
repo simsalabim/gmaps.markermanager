@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <script  type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&hl=ru"></script>
+    <script type="text/javascript" src="gmaps.markermanager.min.js"></script>
+    <script type="text/javascript">
+      function initialize() {
+        var lat = -25.363882;
+        var lng = 131.044922;
+        var quantity = 100;
+        
+        var myOptions = {
+          zoom: 4,
+          center: new google.maps.LatLng(lat, lng),
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+        
+        var markerManagerOptions = {
+          icon: {
+            src: "http://maps.google.com/mapfiles/ms/micons/partly_cloudy.png",
+            shadow: "http://maps.google.com/mapfiles/ms/micons/partly_cloudy.shadow.png"
+          },
+          cell: {
+            width: 48,
+            height: 96
+          }
+        };
+        
+        var markerManager = new GmapsMarkerManager(map, markerManagerOptions);
+        var markers = [];
+        for (var i = 0; i < quantity; i++) {
+          markers.push(new google.maps.Marker({position: new google.maps.LatLng(lat, lng)}));
+          markerManager.addMarker(markers[i]);
+          lat += 0.01;
+          lng += 0.01;
+        }
+      }
+    </script>
+  </head>
+  
+  <body style="margin:0px; padding:0px;" onload="initialize()">
+    <div id="map_canvas" style="width: 100%; height: 100%;"></div>
+  </body>
+</html>

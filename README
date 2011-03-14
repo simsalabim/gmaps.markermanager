@@ -1,0 +1,31 @@
+This is just a Google Maps Api v3 interface to add-remove and group markers on a map.
+
+You may initialize marker manager with following params: group marker icon properties (src, shadow), cell width and height - grouping grid dimentions, threshold - zoom level applies stop grouping markers, sanity - square of a map where user movements do not call grid redraw. All params are optional.
+
+
+
+Usage:
+
+  var markerManagerOptions = {
+    icon: {
+      src: "http://maps.google.com/mapfiles/ms/micons/partly_cloudy.png",
+      shadow: "http://maps.google.com/mapfiles/ms/micons/partly_cloudy.shadow.png"
+    },
+    cell: {
+      width: 48,
+      height: 96
+    },
+    threshold: 12,
+    sanity: 1.5
+  };
+  
+  var markerManager = new GmapsMarkerManager(map, markerManagerOptions);
+  
+  var marker = new google.maps.Marker({position: new google.maps.LatLng(-25.363882, 131.044922)}));
+  markerManager.addMarker(marker);
+  markerManager.removeMarkerByNumber(0);
+  
+
+
+
+Author: Alexander Kaupanin 
