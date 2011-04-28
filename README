@@ -1,4 +1,5 @@
 This is just a Google Maps Api v3 interface to add-remove and group markers on a map.
+(moved from http://code.google.com/p/gmapsmarkermanager)
 
 You may initialize marker manager with following params: group marker icon properties (src, shadow), cell width and height - grouping grid dimentions, threshold - zoom level applies stop grouping markers, sanity - square of a map where user movements do not call grid redraw. All params are optional.
 
